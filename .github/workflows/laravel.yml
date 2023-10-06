@@ -5,7 +5,7 @@ on:
     branches: ["ahmad"] 
 
 jobs:
-  deploy: 
+  deploy-server-1: 
     runs-on: ubuntu-latest
 
     steps:
@@ -17,15 +17,15 @@ jobs:
       run: php -r "file_exists('.env') || copy('.env.example', '.env');"
     # - name: Install Dependencies
     #   run: composer install --no-interaction --no-progress --optimize-autoloader
-    - name: Merge Branches
-      run: |
-          git checkout master
-          git merge --no-ff ahmad
-          git push origin master
-    - name: Generate key
-      run: php artisan key:generate
-    - name: Directory Permissions
-      run: chmod -R 777 storage bootstrap/cache
+    # - name: Merge Branches
+    #   run: |
+    #       git checkout master
+    #       git merge --no-ff ahmad
+    #       git push origin master
+    # - name: Generate key
+    #   run: php artisan key:generate
+    # - name: Directory Permissions
+    #   run: chmod -R 777 storage bootstrap/cache
     - name: Storage Link
       run: php artisan storage:link
     # - name: Deploy to Server
@@ -33,5 +33,90 @@ jobs:
     #       # Replace with your deployment commands
     #       ssh -p 65002 u242045340@185.187.241.34 'cd /path/to/your/laravel/app && git pull origin main'
     #       # Additional deployment steps (e.g., migrate database, restart services, etc.)
+  deploy-server-2: 
+      runs-on: ubuntu-latest
+
+      steps:
+      - uses: shivammathur/setup-php@15c43e89cdef867065b0213be354c2841860869e
+        with:
+          php-version: '8.1'
+      - uses: actions/checkout@v3
+      - name: Copy .env
+        run: php -r "file_exists('.env') || copy('.env.example', '.env');"
+      # - name: Install Dependencies
+      #   run: composer install --no-interaction --no-progress --optimize-autoloader
+      # - name: Merge Branches
+      #   run: |
+      #       git checkout master
+      #       git merge --no-ff ahmad
+      #       git push origin master
+      # - name: Generate key
+      #   run: php artisan key:generate
+      # - name: Directory Permissions
+      #   run: chmod -R 777 storage bootstrap/cache
+      - name: Storage Link
+        run: php artisan storage:link
+      # - name: Deploy to Server
+      #     run: |
+      #       # Replace with your deployment commands
+      #       ssh -p 65002 u242045340@185.187.241.34 'cd /path/to/your/laravel/app && git pull origin main'
+      #       # Additional deployment steps (e.g., migrate database, restart services, etc.)
+
+deploy-server-3: 
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: shivammathur/setup-php@15c43e89cdef867065b0213be354c2841860869e
+      with:
+        php-version: '8.1'
+    - uses: actions/checkout@v3
+    - name: Copy .env
+      run: php -r "file_exists('.env') || copy('.env.example', '.env');"
+    # - name: Install Dependencies
+    #   run: composer install --no-interaction --no-progress --optimize-autoloader
+    # - name: Merge Branches
+    #   run: |
+    #       git checkout master
+    #       git merge --no-ff ahmad
+    #       git push origin master
+    # - name: Generate key
+    #   run: php artisan key:generate
+    # - name: Directory Permissions
+    #   run: chmod -R 777 storage bootstrap/cache
+    - name: Storage Link
+      run: php artisan storage:link
+    # - name: Deploy to Server
+    #     run: |
+    #       # Replace with your deployment commands
+    #       ssh -p 65002 u242045340@185.187.241.34 'cd /path/to/your/laravel/app && git pull origin main'
+    #       # Additional deployment steps (e.g., migrate database, restart services, etc.)
+  deploy-server-4: 
+      runs-on: ubuntu-latest
+
+      steps:
+      - uses: shivammathur/setup-php@15c43e89cdef867065b0213be354c2841860869e
+        with:
+          php-version: '8.1'
+      - uses: actions/checkout@v3
+      - name: Copy .env
+        run: php -r "file_exists('.env') || copy('.env.example', '.env');"
+      # - name: Install Dependencies
+      #   run: composer install --no-interaction --no-progress --optimize-autoloader
+      # - name: Merge Branches
+      #   run: |
+      #       git checkout master
+      #       git merge --no-ff ahmad
+      #       git push origin master
+      # - name: Generate key
+      #   run: php artisan key:generate
+      # - name: Directory Permissions
+      #   run: chmod -R 777 storage bootstrap/cache
+      - name: Storage Link
+        run: php artisan storage:link
+      # - name: Deploy to Server
+      #     run: |
+      #       # Replace with your deployment commands
+      #       ssh -p 65002 u242045340@185.187.241.34 'cd /path/to/your/laravel/app && git pull origin main'
+      #       # Additional deployment steps (e.g., migrate database, restart services, etc.)
 
       

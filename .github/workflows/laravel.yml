@@ -18,7 +18,7 @@ jobs:
     - name: Install Dependencies
       run: composer install 
     - name: Merge Branches
-        run: |
+      run: |
           git checkout master
           git merge --no-ff ahmad
           git push origin master
